@@ -1,0 +1,16 @@
+database:
+  host: "/var/lib/mysqld/mysqld.sock"
+  user: "user"
+  password: "qwerty123"
+  name: "some_name"
+queue_table: "bpm_event_log_queue"
+poll_interval: 1
+
+loki:
+  url: "http://localhost:3100/loki/api/v1/push"
+  labels:
+    job: "golang-loki-adapter"
+    app: "golang-loki-adapter"
+  timeout: 5
+  retries: 5
+  batch_size: 100

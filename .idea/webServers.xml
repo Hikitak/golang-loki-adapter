@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="003409dd-6330-470e-abb1-2e7b61fd18eb" name="dev3">
+        <fileTransfer accessType="SFTP" host="dev3.bpmsoft.ru" port="22" sshConfigId="7d77a6a6-6898-4f8b-92e0-9899adef1227" sshConfig="root@dev3.bpmsoft.ru:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
