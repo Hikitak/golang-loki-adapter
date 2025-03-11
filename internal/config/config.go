@@ -2,13 +2,14 @@ package config
 
 import (
 	"io/ioutil"
+	"os"
 
 	"golang-loki-adapter.local/pkg/models"
 	"gopkg.in/yaml.v3"
 )
 
 func LoadConfig() (*models.Config, error) {
-	configFile, err := ioutil.ReadFile("internal/config/config.yaml")
+	configFile, err := ioutil.ReadFile(os.Getenv("CONFIG_PATH"))
 	if err != nil {
 		return nil, err
 	}

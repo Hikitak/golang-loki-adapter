@@ -52,3 +52,31 @@ CREATE TRIGGER after_insert_b_event_log
 2. Настройки для Loki
 
 # Настройка systemd unit файла
+1. touch /etc/systemd/system/loki-adapter.service
+2. echo '[Unit]\nDescription=Event log loki log adapter\nAfter=default.target\n\n[Service]\nUser=root \nRestart=always \nEnvironment="CONFIG_PATH=/home/bitrix/www/local/services/golang-loki-adapter/internal/config/config.yaml"\nExecStart=/home/bitrix/www/local/services/golang-loki-adapter/golang-loki-adapter.local\n\n[Install]\nAlias=golang-loki-adapter.service \nWantedBy=nginx.service' > /etc/systemd/system/loki-adapter.service
+3. ln -s loki-adapter.service golang-loki-adapter.service
+
+Результат
+```
+[Unit]
+Description=Event log loki log adapter
+After=default.target
+
+[Service]
+User=root
+Restart=always
+Environment="CONFIG_PATH=/home/bitrix/www/local/services/golang-loki-adapter/internal/config/config.yaml"
+ExecStart=/home/bitrix/www/local/services/golang-loki-adapter/golang-loki-adapter.local
+
+[Install]
+Alias=golang-loki-adapter.service
+WantedBy=nginx.service
+```
+
+
+`CONFIG_PATH` настроить под расположение config.yaml.
+
+Полезные команды:
+1. systemctl start loki-adapter.service
+2. systemctl restart loki-adapter.service
+3. systemctl status loki-adapter.service
