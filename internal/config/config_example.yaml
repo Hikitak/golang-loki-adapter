@@ -3,7 +3,7 @@ database:
   user: "user"
   password: "qwerty123"
   name: "some_name"
-queue_table: "bpm_event_log_queue"
+queue_table: "my_event_log_queue"
 poll_interval: 1
 
 loki:

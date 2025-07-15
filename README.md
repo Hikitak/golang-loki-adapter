@@ -14,7 +14,7 @@
 # Создание очереди в mysql
 Любыми средствами добавить очередь:
 ```sql
-CREATE TABLE IF NOT EXISTS `bpm_event_log_queue` (
+CREATE TABLE IF NOT EXISTS `my_event_log_queue` (
 `ID` int unsigned NOT NULL AUTO_INCREMENT,
 `DATA` text COLLATE utf8mb4_general_ci DEFAULT NULL,
 `CREATED_AT` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -28,7 +28,7 @@ PRIMARY KEY (`ID`)
 CREATE TRIGGER after_insert_b_event_log
     AFTER INSERT ON b_event_log
     FOR EACH ROW
-    INSERT INTO bpm_event_log_queue (DATA)
+    INSERT INTO my_event_log_queue (DATA)
     VALUES (
                CONCAT_WS("",
                        '{"ID":"', NEW.ID,
